@@ -5,14 +5,21 @@ services:
     image: postgres:16-alpine
     container_name: procont-postgres
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-procont_user} -d ${POSTGRES_DB:-procont_core}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-procont_core}
       POSTGRES_USER: ${POSTGRES_USER:-procont_user}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-procont_local_password}
+    command: ["postgres", "-c", "max_connections=200"]
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
 
   redis:
     image: redis:7-alpine

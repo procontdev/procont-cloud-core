@@ -8,6 +8,20 @@ on:
 jobs:
   api-build:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: procont_core
+          POSTGRES_USER: procont_user
+          POSTGRES_PASSWORD: procont_local_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U procont_user -d procont_core"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,6 +36,20 @@ jobs:
 
       - name: Build API
         run: dotnet build ProcontCloudCore.sln --configuration Release --no-restore
+
+      - name: Apply migrations
+        env:
+          PROCONT_CONNECTIONSTRINGS__POSTGRES: Host=localhost;Port=5432;Database=procont_core;Username=procont_user;Password=procont_local_password
+          PROCONT_JWT__KEY: ci-jwt-key-at-least-32-chars-long
+        run: dotnet ef database update --project apps/api/src/Infrastructure/Infrastructure.csproj --startup-project apps/api/src/Api/Api.csproj
+
+      - name: Test API
+        env:
+          PROCONT_CONNECTIONSTRINGS__POSTGRES: Host=localhost;Port=5432;Database=procont_core;Username=procont_user;Password=procont_local_password
+          PROCONT_JWT__KEY: ci-jwt-key-at-least-32-chars-long
+          PROCONT_SECURITY__SECRETPROVIDER: github-actions-secrets
+          PROCONT_SECURITY__SECRETREFERENCE: PROCONT_CONNECTIONSTRINGS__POSTGRES,PROCONT_JWT__KEY
+        run: dotnet test ProcontCloudCore.sln --configuration Release --no-build --collect:"XPlat Code Coverage"
 
   web-checks:
     runs-on: ubuntu-latest

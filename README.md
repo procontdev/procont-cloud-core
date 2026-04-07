@@ -39,6 +39,20 @@ Bootstrap tecnico del repositorio base para Procont Cloud, un SaaS contable mult
 - Lint web: `npm run lint -w apps/web`
 - Build web: `npm run build -w apps/web`
 - Build API: `dotnet build ProcontCloudCore.sln`
+- Test API: `dotnet test ProcontCloudCore.sln --collect:"XPlat Code Coverage"`
+
+## Sprint 1 habilitado
+
+- Multi-tenant base por `X-Tenant-Code`, query string `tenant` o subdominio.
+- JWT auth base con roles y permisos seed para tenant demo.
+- Endpoints CRUD minimos para companies, plan de cuentas, periodos y asientos.
+- Swagger/OpenAPI disponible desde la API.
+
+## Credenciales demo
+
+- Tenant: `demo`
+- Usuario: `admin@demo.local`
+- Password: `Procont2026*`
 
 ## Seguridad inicial
 

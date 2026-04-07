@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coverage line-rate="0.4705" branch-rate="0.5" version="1.9" timestamp="1775573243" lines-covered="32" lines-valid="68" branches-covered="4" branches-valid="8">
+  <sources>
+    <source>E:\DESARROLLO\Sistemas Procont\Procont Cloud 2026\Fuentes\Repo\procont-cloud-core\apps\api\src\Domain\</source>
+  </sources>
+  <packages>
+    <package name="Domain" line-rate="0.4705" branch-rate="0.5" complexity="55">
+      <classes>
+        <class name="Domain.Tenants.Company" filename="Tenants\Company.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Ruc" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Status" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Tenants.Tenant" filename="Tenants\Tenant.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Code" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Status" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Iam.Permission" filename="Iam\Permission.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_Key" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Description" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Iam.Role" filename="Iam\Role.cs" line-rate="0" branch-rate="1" complexity="1">
+          <methods>
+            <method name="get_Name" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Iam.RolePermission" filename="Iam\RolePermission.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_RoleId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_PermissionId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="False" />
+            <line number="6" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Iam.User" filename="Iam\User.cs" line-rate="0" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Email" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_PasswordHash" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Status" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Iam.UserRole" filename="Iam\UserRole.cs" line-rate="0" branch-rate="1" complexity="2">
+          <methods>
+            <method name="get_UserId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_RoleId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="False" />
+            <line number="6" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Common.ActionAuditLog" filename="Common\ActionAuditLog.cs" line-rate="0" branch-rate="1" complexity="8">
+          <methods>
+            <method name="get_TenantId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_UserEmail" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Action" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_ResourceType" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_ResourceId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_TraceId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_OccurredAt" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Metadata" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="12" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="0" branch="False" />
+            <line number="6" hits="0" branch="False" />
+            <line number="7" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+            <line number="11" hits="0" branch="False" />
+            <line number="12" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Common.AuditableEntity" filename="Common\AuditableEntity.cs" line-rate="0.75" branch-rate="1" complexity="4">
+          <methods>
+            <method name="get_Id" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_CreatedAt" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="6" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_UpdatedAt" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_CreatedBy" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="4" branch="False" />
+            <line number="6" hits="4" branch="False" />
+            <line number="7" hits="4" branch="False" />
+            <line number="8" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Common.TenantEntity" filename="Common\TenantEntity.cs" line-rate="1" branch-rate="1" complexity="1">
+          <methods>
+            <method name="get_TenantId" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="5" hits="2" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="5" hits="2" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Accounting.AccountingRules" filename="Accounting\AccountingRules.cs" line-rate="0.7619" branch-rate="0.5" complexity="8">
+          <methods>
+            <method name="EnsureBalanced" signature="(System.Collections.Generic.IEnumerable`1&lt;Domain.Accounting.AsientoDetalle&gt;)" line-rate="0.7272" branch-rate="0.5" complexity="4">
+              <lines>
+                <line number="6" hits="1" branch="False" />
+                <line number="7" hits="1" branch="False" />
+                <line number="8" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="19" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="9" hits="0" branch="False" />
+                <line number="10" hits="0" branch="False" />
+                <line number="13" hits="3" branch="False" />
+                <line number="14" hits="3" branch="False" />
+                <line number="16" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="120" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="17" hits="1" branch="False" />
+                <line number="18" hits="1" branch="False" />
+                <line number="20" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="EnsurePeriodoAbierto" signature="(Domain.Accounting.PeriodoContable)" line-rate="0.8" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="23" hits="1" branch="False" />
+                <line number="24" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="12" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="25" hits="1" branch="False" />
+                <line number="26" hits="1" branch="False" />
+                <line number="28" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="EnsureCuentaActiva" signature="(Domain.Accounting.PlanCuenta)" line-rate="0.8" branch-rate="0.5" complexity="2">
+              <lines>
+                <line number="31" hits="1" branch="False" />
+                <line number="32" hits="1" branch="True" condition-coverage="50% (1/2)">
+                  <conditions>
+                    <condition number="12" type="jump" coverage="50%" />
+                  </conditions>
+                </line>
+                <line number="33" hits="1" branch="False" />
+                <line number="34" hits="1" branch="False" />
+                <line number="36" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="6" hits="1" branch="False" />
+            <line number="7" hits="1" branch="False" />
+            <line number="8" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="19" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+            <line number="13" hits="3" branch="False" />
+            <line number="14" hits="3" branch="False" />
+            <line number="16" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="120" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="17" hits="1" branch="False" />
+            <line number="18" hits="1" branch="False" />
+            <line number="20" hits="0" branch="False" />
+            <line number="23" hits="1" branch="False" />
+            <line number="24" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="12" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="25" hits="1" branch="False" />
+            <line number="26" hits="1" branch="False" />
+            <line number="28" hits="0" branch="False" />
+            <line number="31" hits="1" branch="False" />
+            <line number="32" hits="1" branch="True" condition-coverage="50% (1/2)">
+              <conditions>
+                <condition number="12" type="jump" coverage="50%" />
+              </conditions>
+            </line>
+            <line number="33" hits="1" branch="False" />
+            <line number="34" hits="1" branch="False" />
+            <line number="36" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Accounting.Asiento" filename="Accounting\Asiento.cs" line-rate="0" branch-rate="1" complexity="5">
+          <methods>
+            <method name="get_PeriodoId" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Fecha" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Glosa" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Estado" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="0" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Detalles" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="0" branch="False" />
+            <line number="8" hits="0" branch="False" />
+            <line number="9" hits="0" branch="False" />
+            <line number="10" hits="0" branch="False" />
+            <line number="11" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Accounting.AsientoDetalle" filename="Accounting\AsientoDetalle.cs" line-rate="0.8" branch-rate="1" complexity="5">
+          <methods>
+            <method name="get_AsientoId" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_CuentaId" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="2" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Debe" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Haber" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="4" branch="False" />
+              </lines>
+            </method>
+            <method name="get_CentroCosto" signature="()" line-rate="0" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="0" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="2" branch="False" />
+            <line number="8" hits="2" branch="False" />
+            <line number="9" hits="4" branch="False" />
+            <line number="10" hits="4" branch="False" />
+            <line number="11" hits="0" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Accounting.PeriodoContable" filename="Accounting\PeriodoContable.cs" line-rate="1" branch-rate="1" complexity="3">
+          <methods>
+            <method name="get_Anio" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Mes" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Estado" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="1" branch="False" />
+            <line number="8" hits="1" branch="False" />
+            <line number="9" hits="3" branch="False" />
+          </lines>
+        </class>
+        <class name="Domain.Accounting.PlanCuenta" filename="Accounting\PlanCuenta.cs" line-rate="1" branch-rate="1" complexity="5">
+          <methods>
+            <method name="get_Codigo" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="7" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Descripcion" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="8" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Nivel" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="9" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Tipo" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="10" hits="1" branch="False" />
+              </lines>
+            </method>
+            <method name="get_Activa" signature="()" line-rate="1" branch-rate="1" complexity="1">
+              <lines>
+                <line number="11" hits="3" branch="False" />
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="1" branch="False" />
+            <line number="8" hits="1" branch="False" />
+            <line number="9" hits="1" branch="False" />
+            <line number="10" hits="1" branch="False" />
+            <line number="11" hits="3" branch="False" />
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>
