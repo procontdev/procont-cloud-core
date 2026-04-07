@@ -9,17 +9,20 @@ public sealed class RequestContextEnrichmentMiddleware(RequestDelegate next, ILo
 {
     public async Task InvokeAsync(HttpContext context)
     {
-        var correlationId = context.TraceIdentifier;
+        var requestId = context.TraceIdentifier;
         var tenantCode = context.Items.TryGetValue(HttpTenantContext.TenantCodeKey, out var code) ? code?.ToString() : "unresolved";
         var tenantId = context.Items.TryGetValue(HttpTenantContext.TenantIdKey, out var tenant) ? tenant?.ToString() : "unresolved";
 
-        Activity.Current?.SetTag("procont.correlation_id", correlationId);
+        Activity.Current?.SetTag("procont.correlation_id", requestId);
+        Activity.Current?.SetTag("procont.request_id", requestId);
         Activity.Current?.SetTag("procont.tenant_code", tenantCode);
         Activity.Current?.SetTag("procont.tenant_id", tenantId);
+        TelemetryEnrichment.SetRequestContext(Activity.Current, requestId, tenantId);
 
         using (logger.BeginScope(new Dictionary<string, object?>
         {
-            ["CorrelationId"] = correlationId,
+            ["CorrelationId"] = requestId,
+            ["RequestId"] = requestId,
             ["TenantCode"] = tenantCode,
             ["TenantId"] = tenantId
         }))

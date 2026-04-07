@@ -14,6 +14,7 @@ using Infrastructure.Persistence;
 using Infrastructure.Persistence.Rls;
 using Infrastructure.Persistence.Repositories;
 using Infrastructure.Persistence.Seed;
+using Infrastructure.Security;
 using Infrastructure.Sire;
 using Infrastructure.Tenancy;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -23,6 +24,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -36,6 +38,8 @@ public static class DependencyInjection
         services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.SectionName));
         services.Configure<PostgresOptions>(configuration.GetSection(PostgresOptions.SectionName));
         services.Configure<SecurityOptions>(configuration.GetSection(SecurityOptions.SectionName));
+        services.Configure<SecretManagementOptions>(configuration.GetSection(SecretManagementOptions.SectionName));
+        services.Configure<SunatSireOptions>(configuration.GetSection(SunatSireOptions.SectionName));
 
         var connectionString = configuration.GetConnectionString("Postgres")
             ?? Environment.GetEnvironmentVariable("PROCONT_CONNECTIONSTRINGS__POSTGRES")
@@ -70,8 +74,19 @@ public static class DependencyInjection
         services.AddSingleton<BCryptPasswordHasher>();
         services.AddSingleton<IPasswordHasher>(sp => sp.GetRequiredService<BCryptPasswordHasher>());
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddSingleton<ISecretProvider, EnvironmentSecretProvider>();
+        services.AddSingleton<ConfigurationSecretResolver>();
+        services.AddSingleton<MetricsSnapshotStore>();
         services.AddScoped<ProcontDbSeeder>();
         services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+
+        services.AddHttpClient<SunatSireAdapter>((serviceProvider, client) =>
+        {
+            var options = serviceProvider.GetRequiredService<IOptions<SunatSireOptions>>().Value;
+            client.BaseAddress = new Uri(options.BaseUrl);
+            client.Timeout = TimeSpan.FromSeconds(options.TimeoutSeconds);
+        });
+        services.TryAddScoped<Application.Sire.ISireAdapter, SunatSireAdapter>();
 
         services.AddScoped<AuthService>();
         services.AddScoped<TenantService>();
@@ -80,8 +95,6 @@ public static class DependencyInjection
         services.AddScoped<PeriodoContableService>();
         services.AddScoped<AsientoService>();
         services.AddScoped<Application.Sire.SireService>();
-        services.AddScoped<Application.Sire.ISireAdapter, SunatSireAdapter>();
-
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {

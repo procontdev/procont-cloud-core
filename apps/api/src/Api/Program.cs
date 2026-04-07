@@ -7,6 +7,10 @@ using Infrastructure;
 using Infrastructure.Configuration;
 using Infrastructure.Observability;
 using Infrastructure.Tenancy;
+using OpenTelemetry.Logs;
+using OpenTelemetry.Metrics;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Trace;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -14,6 +18,26 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddEnvironmentVariables(prefix: "PROCONT_");
+
+builder.Logging.ClearProviders();
+builder.Logging.AddJsonConsole();
+builder.Logging.AddOpenTelemetry(options =>
+{
+    options.IncludeFormattedMessage = true;
+    options.IncludeScopes = true;
+    options.ParseStateValues = true;
+});
+
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(resource => resource.AddService(Telemetry.ServiceName))
+    .WithTracing(tracing => tracing
+        .AddSource(Telemetry.ServiceName)
+        .AddAspNetCoreInstrumentation()
+        .AddHttpClientInstrumentation())
+    .WithMetrics(metrics => metrics
+        .AddMeter(Telemetry.ServiceName)
+        .AddAspNetCoreInstrumentation()
+        .AddHttpClientInstrumentation());
 
 builder.Services.Configure<TenantResolutionOptions>(builder.Configuration.GetSection("TenantResolution"));
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -101,6 +125,8 @@ app.MapGet("/health", () => Results.Ok(new
 .WithTags("Health")
 .WithOpenApi();
 
+app.MapPrometheusMetrics();
+
 var api = app.MapGroup("/api/v1");
 
 api.MapPost("/auth/login", async (LoginRequest request, AuthService service, CancellationToken cancellationToken) =>
@@ -178,6 +204,7 @@ api.MapPost("/sire/contabilizar", [Authorize(Policy = "Permission:sire.manage")]
 api.MapGet("/observability/context", [Authorize] (HttpContext context) => Results.Ok(new
 {
     correlationId = context.TraceIdentifier,
+    requestId = context.TraceIdentifier,
     tenantCode = context.Items.TryGetValue(HttpTenantContext.TenantCodeKey, out var tenantCode) ? tenantCode : null,
     tenantId = context.Items.TryGetValue(HttpTenantContext.TenantIdKey, out var tenantId) ? tenantId : null,
     secretProvider = securityOptions.SecretProvider,

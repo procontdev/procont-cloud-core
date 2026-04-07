@@ -31,7 +31,19 @@ public sealed class ApiWebApplicationFactory : WebApplicationFactory<Program>, I
                 ["Postgres:SeedDemoData"] = "true",
                 ["Postgres:EnableRls"] = "true",
                 ["Security:SecretProvider"] = "integration-tests",
-                ["Security:SecretReference"] = "in-memory"
+                ["Security:SecretReference"] = "in-memory",
+                ["Security:RotateJwtKeys"] = "true",
+                ["Security:JwtActiveKeyVersion"] = "test-v1",
+                ["Security:AllowedJwtKeyVersions:0"] = "test-v1",
+                ["SecretManagement:Environment"] = "test",
+                ["SecretManagement:Backend"] = "in-memory",
+                ["SecretManagement:EnforceExternalSecrets"] = "false",
+                ["SecretManagement:RequireJwtKeyRotation"] = "true",
+                ["SecretManagement:JwtKeySecretName"] = "jwt-signing-key",
+                ["SecretManagement:JwtKeyVersion"] = "test-v1",
+                ["SunatSire:UseStubResponses"] = "true",
+                ["SunatSire:ClientId"] = "sunat-client-id-test",
+                ["SunatSire:ClientSecret"] = "sunat-client-secret-test"
             });
         });
         builder.ConfigureServices(services =>

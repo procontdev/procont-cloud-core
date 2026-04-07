@@ -166,5 +166,5 @@ public sealed class ApiIntegrationTests(ApiWebApplicationFactory factory) : ICla
     private sealed record PlanCuentaPayload(Guid Id, Guid TenantId, string Codigo, string Descripcion, int Nivel, string Tipo, bool Activa, DateTime CreatedAt, Guid? CreatedBy);
     private sealed record PeriodoPayload(Guid Id, Guid TenantId, int Anio, int Mes, int Estado, DateTime CreatedAt, Guid? CreatedBy);
     private sealed record SirePropuestaPayload(Guid Id, string Periodo, string Estado, decimal ImporteTotal, DateTime GeneratedAtUtc);
-    private sealed record ObservabilityPayload(string CorrelationId, string TenantCode, string TenantId, string SecretProvider, string SecretReference);
+    private sealed record ObservabilityPayload(string CorrelationId, string RequestId, string TenantCode, string TenantId, string SecretProvider, string SecretReference);
 }
